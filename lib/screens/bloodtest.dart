@@ -27,7 +27,9 @@ class _bloodtestState extends State<bloodtest> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: CustomAppBar(title: 'bloodtest', backgroundColor: Colors.white),
+        appBar: CustomAppBar(
+            title: 'bloodtest',
+            backgroundColor: Color.fromRGBO(250, 250, 250, 1)),
         drawer: Drawer(
           child: drawer(),
         ),
@@ -121,7 +123,7 @@ class _bloodtestState extends State<bloodtest> {
                 child: CircularPercentIndicator(
                   radius: 100,
                   lineWidth: 20.0,
-                  percent: (int.parse(blood) / 100),
+                  percent: (double.parse(blood) / 250),
                   progressColor: Color.fromRGBO(r, g, b, 1),
                   backgroundColor: Color.fromRGBO(r, g, b, 0.2),
                   circularStrokeCap: CircularStrokeCap.round,
@@ -133,6 +135,7 @@ class _bloodtestState extends State<bloodtest> {
                 padding: const EdgeInsets.only(left: 160, right: 175),
                 child: TextFormField(
                   decoration: InputDecoration(
+                    counterText: '',
                     hintText: '- - -',
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
@@ -146,6 +149,7 @@ class _bloodtestState extends State<bloodtest> {
 // for version 2 and greater youcan also use this
                     FilteringTextInputFormatter.digitsOnly
                   ],
+                  maxLength: 3,
                   onChanged: (var value) {
                     setState(
                       () {
@@ -157,20 +161,21 @@ class _bloodtestState extends State<bloodtest> {
                           print(double.parse(blood));
                           // blood = value;
                         } else {
-                          if (double.parse(blood) > 100) {
-                            blood = '100';
+                          if (double.parse(blood) > 250) {
+                            blood = '250';
                           }
                           print(double.parse(blood));
                         }
-                        if (double.parse(value) < 45) {
+                        if (double.parse(value) < 140) {
                           r = 0;
                           g = 255;
                           b = 0;
-                        } else if (double.parse(value) < 70) {
-                          r = 191;
-                          g = 149;
-                          b = 33;
-                        } else {
+                        } else if (double.parse(value) > 140 &&
+                            double.parse(value) < 160) {
+                          r = 255;
+                          g = 215;
+                          b = 0;
+                        } else if (double.parse(value) > 160) {
                           r = 255;
                           g = 0;
                           b = 0;
