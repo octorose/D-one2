@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/menu.dart';
 import 'package:flutter_application_1/screens/Onboarding.dart';
 
 class LogupForm extends StatefulWidget {
@@ -12,7 +11,7 @@ class LogupForm extends StatefulWidget {
 class _LogupFormState extends State<LogupForm> {
   var msg = TextEditingController();
   var msge = "";
-  GlobalKey<FormState> _numberForm = GlobalKey();
+  final GlobalKey<FormState> _numberForm = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +76,9 @@ class _LogupFormState extends State<LogupForm> {
                             controller: msg,
                             validator: (val) {
                               if (val!.isEmpty) return "set your Email";
+                              return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintStyle: TextStyle(fontSize: 20),
                               border: InputBorder.none,
                               icon: Icon(Icons.person_outline_outlined),
@@ -112,7 +112,7 @@ class _LogupFormState extends State<LogupForm> {
                       boxShadow: [
                         BoxShadow(
                           color:
-                              Color.fromARGB(255, 4, 84, 134)!.withOpacity(0.5),
+                              const Color.fromARGB(255, 4, 84, 134).withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
                           offset: const Offset(0, 3),
@@ -135,7 +135,7 @@ class _LogupFormState extends State<LogupForm> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Onboarding(),
+                              builder: (context) => const Onboarding(),
                             ),
                           );
                         }

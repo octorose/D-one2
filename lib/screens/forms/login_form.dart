@@ -112,7 +112,7 @@ class _LoginFormState extends State<LoginForm> {
                       boxShadow: [
                         BoxShadow(
                           color:
-                              Color.fromARGB(255, 4, 84, 134)!.withOpacity(0.5),
+                              Color.fromARGB(255, 4, 84, 134).withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
                           offset: const Offset(0, 3),
