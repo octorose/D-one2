@@ -30,7 +30,7 @@ The next phase of development involves building the backend for the app. We plan
 
 To set up the app on your local machine, follow these steps:
 
-1. Clone the repository from GitHub: [project-repository-url](https://github.com/your-username/your-project-repo.git).
+1. Clone the repository from GitHub: [project-repository-url](https://github.com/octorose/D-one2.git).
 
 2. Install the required dependencies by following the instructions provided in the `README` file of the project.
 
